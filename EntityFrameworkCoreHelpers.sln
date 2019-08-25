@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffoldDbContextHelper", "ScaffoldDbContextHelper\ScaffoldDbContextHelper.csproj", "{26DED45B-9BFA-42EE-866E-A4943637926F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Data", "NorthWind.Data\NorthWind.Data.csproj", "{F39B9143-2C52-478F-9CC4-1C7AEA67A1F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class example libraries", "Class example libraries", "{385496B1-49EA-487D-A749-226E8DC84F35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C12837AB-94F9-4CF4-AB1B-EF202FE4CA49}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26DED45B-9BFA-42EE-866E-A4943637926F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26DED45B-9BFA-42EE-866E-A4943637926F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26DED45B-9BFA-42EE-866E-A4943637926F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26DED45B-9BFA-42EE-866E-A4943637926F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39B9143-2C52-478F-9CC4-1C7AEA67A1F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39B9143-2C52-478F-9CC4-1C7AEA67A1F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39B9143-2C52-478F-9CC4-1C7AEA67A1F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39B9143-2C52-478F-9CC4-1C7AEA67A1F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F39B9143-2C52-478F-9CC4-1C7AEA67A1F2} = {385496B1-49EA-487D-A749-226E8DC84F35}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0887F61E-B933-4675-BC8D-0D59821513A3}
+	EndGlobalSection
+EndGlobal
