@@ -32,8 +32,13 @@ namespace ScaffoldDbContextHelper
                 StartupProjectTextBox.Text = "NorthWind.Data";
             }
 
+            /*
+             * The alternate is to set the following as an argument
+             * to arguments for Tools item for the app $(SolutionDir)
+             */
             SolutionFileDialog1.InitialDirectory = AppDomain.CurrentDomain
                 .BaseDirectory.CurrentSolutionFolder();
+
         }
 
         /// <summary>
