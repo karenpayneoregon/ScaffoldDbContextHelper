@@ -118,7 +118,7 @@ namespace ScaffoldDbContextHelper.Classes
                 }
             }
 
-            return tableNameList;
+            return tableNameList; 
 
         }
     }
