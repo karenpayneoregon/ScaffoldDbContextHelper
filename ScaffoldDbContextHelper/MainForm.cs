@@ -15,22 +15,16 @@ namespace ScaffoldDbContextHelper
 {
     public partial class MainForm : Form
     {
-        /// <summary>
-        /// Change to match your server e.g.
-        /// localdb, sqlexpress etc.
-        /// </summary>
-        private string ServerName = "KARENS-PC";
+
+        private readonly ScaffoldBuilder _scaffoldBuilder = new ScaffoldBuilder("KARENS-PC"); 
+
         public MainForm()
         {
             InitializeComponent();
-            Shown += Form1_Shown;
-            ListBoxSearchTextBox.TextChanged += ListBoxSearchTextBox_TextChanged;
 
-            // default for Karen Payne
-            if (Environment.UserName == "Karens")
-            {
-                StartupProjectTextBox.Text = "NorthWind.Data";
-            }
+            Shown += Form1_Shown;
+
+            ListBoxSearchTextBox.TextChanged += ListBoxSearchTextBox_TextChanged;
 
             /*
              * The alternate is to set the following as an argument
@@ -49,6 +43,7 @@ namespace ScaffoldDbContextHelper
         private void ListBoxSearchTextBox_TextChanged(object sender, EventArgs e)
         {
             var searchText = ListBoxSearchTextBox.Text;
+
             for (var index = 0; index <= DatabaseListBox.Items.Count - 1; index++)
             {
                 if (!DatabaseListBox.Items[index].ToString().ToLower().Contains(searchText)) continue;
@@ -66,7 +61,7 @@ namespace ScaffoldDbContextHelper
         /// <param name="e"></param>
         private void Form1_Shown(object sender, EventArgs e)
         {
-            var ops = new DatabaseInformation(ServerName);
+            var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
 
             var result = ops.DatabaseNames();
 
@@ -76,12 +71,13 @@ namespace ScaffoldDbContextHelper
             }
             else
             {
+
                 MessageBox.Show($"Error: {ops.LastExceptionMessage}");
             }
         }
         private void GetDatabaseNamesButton_Click(object sender, EventArgs e)
         {
-            var ops = new DatabaseInformation(ServerName);
+            var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
             var result = ops.DatabaseNames();
 
             if (ops.IsSuccessFul)
@@ -104,7 +100,7 @@ namespace ScaffoldDbContextHelper
         {
             if (DatabaseListBox.DataSource == null) return;
 
-            var ops = new DatabaseInformation(ServerName);
+            var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
 
             ContextNameTextBox.Text = $"{DatabaseListBox.Text}Context";
 
@@ -134,73 +130,32 @@ namespace ScaffoldDbContextHelper
         /// <param name="e"></param>
         private void GenerateButton_Click(object sender, EventArgs e)
         {
-            if (DatabaseListBox.DataSource == null) return;
-            if (TablesCheckedListBox.DataSource == null) return;
 
-            if (TablesCheckedListBox.CheckedItems.Count <= 0) return;
-            var items = string.Join("", TablesCheckedListBox
-                    .CheckedItems
-                    .Cast<string>()
-                    .Select(tb => $"\"{tb}\",").ToArray())
-                .TrimEnd(',');
-
-            var script = "";
-            
-            if (string.IsNullOrWhiteSpace(FolderTextBox.Text))
+            if (DatabaseListBox.DataSource == null || TablesCheckedListBox.DataSource == null || TablesCheckedListBox.CheckedItems.Count <= 0 || string.IsNullOrWhiteSpace(StartupProjectTextBox.Text))
             {
-                script = $"Scaffold-DbContext \"Server={ServerName}; " +
-                         $"Database={DatabaseListBox.Text};" +
-                          "Trusted_Connection=True;\" -Provider Microsoft.EntityFrameworkCore.SqlServer" ;
-            }
-            else
+                MessageBox.Show("Requires a database, one or more tables along with a startup folder!");
+                return;
+            } 
+
+            ScriptTextBox.Text = "";
+
+            var configuration = new ScaffoldConfigurationItem
             {
-                var folderName = "";
-                folderName = FolderTextBox.Text.Contains(" ") ? $"\"{FolderTextBox.Text}\"" : FolderTextBox.Text;
+                DatabaseName = DatabaseListBox.Text,
+                TableNames = TablesCheckedListBox.CheckedItems.Cast<string>(),
+                ContextName = ContextNameTextBox.Text,
+                ContextDirectory = ContextFolderTextBox.Text,
+                FolderName = FolderTextBox.Text,
+                StartupProject = StartupProjectTextBox.Text,
+                Switches =
+                {
+                    Force = VerboseCheckBox.Checked,
+                    Verbose = VerboseCheckBox.Checked,
+                    UseDataAnnotations = DataAnnotationsCheckBox.Checked
+                }
+            };
 
-                script = $"Scaffold-DbContext \"Server={ServerName};Database={DatabaseListBox.Text};" +
-                         $"Trusted_Connection=True;\" -Provider Microsoft.EntityFrameworkCore.SqlServer " +
-                         $"-OutputDir {folderName}";
-            }
-
-            if (!string.IsNullOrWhiteSpace(ContextNameTextBox.Text))
-            {
-                script += $" -Context {ContextNameTextBox.Text} ";
-            }
-
-            if (VerboseCheckBox.Checked)
-            {
-                script = script + " -v";
-            }
-
-            if (ForceCheckBox.Checked)
-            {
-                script += " -f ";
-            }
-
-            if (DataAnnotationsCheckBox.Checked)
-            {
-                script += " -DataAnnotations ";
-            }
-
-            if (UseDatabaseNamesCheckBox.Checked)
-            {
-                script += " -UseDatabaseNames ";
-            }
-
-            if (!string.IsNullOrWhiteSpace(StartupProjectTextBox.Text))
-            {
-                script += $" -startupproject {StartupProjectTextBox.Text}";
-            }
-
-            if (!string.IsNullOrWhiteSpace(ContextFolderTextBox.Text))
-            {
-                script += $" -ContextDir {ContextFolderTextBox.Text}";
-            }
-           
-            script += " -t "; // parameter for adding tables to the script
-            script += items;
-
-            ScriptTextBox.Text = script;
+            ScriptTextBox.Text = _scaffoldBuilder.Generate(configuration);
 
         }
         /// <summary>
@@ -251,3 +206,4 @@ namespace ScaffoldDbContextHelper
         }
     }
 }
+

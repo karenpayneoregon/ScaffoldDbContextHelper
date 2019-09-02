@@ -9,7 +9,7 @@ namespace ScaffoldDbContextHelper
         /*
          * Project names from Open dialog from sending form
          */
-        private List<string> _projectNames;
+        private readonly List<string> _projectNames;
 
         public ProjectNamesForm()
         {
@@ -19,6 +19,7 @@ namespace ScaffoldDbContextHelper
         public ProjectNamesForm(List<string> projectNames)
         {
             InitializeComponent();
+
             _projectNames = projectNames;
 
             Shown += ProjectNamesForm_Shown;

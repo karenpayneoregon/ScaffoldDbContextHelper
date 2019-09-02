@@ -46,8 +46,11 @@ namespace ScaffoldDbContextHelper.Classes
                 {
                     try
                     {
+
                         cn.Open();
+
                         var reader = cmd.ExecuteReader();
+
                         if (reader.HasRows)
                         {
                             while (reader.Read())
@@ -88,19 +91,28 @@ namespace ScaffoldDbContextHelper.Classes
 
                     try
                     {
+
                         cn.Open();
+
                         var reader = cmd.ExecuteReader();
+
                         if (reader.HasRows)
                         {
                             while (reader.Read())
                             {
                                 var tableName = reader.GetString(0);
 
+                                /*
+                                 * Disregard database diagrams
+                                 */
                                 if (tableName == "sysdiagrams")
                                 {
                                     continue;
                                 }
 
+                                /*
+                                 * Enclose table names with spaces with brackets
+                                 */
                                 if (tableName.Contains(" "))
                                 {
                                     tableName = $"[{tableName}]";

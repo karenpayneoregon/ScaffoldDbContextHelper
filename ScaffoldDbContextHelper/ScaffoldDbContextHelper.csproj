@@ -81,6 +81,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.1\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
@@ -103,12 +104,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ConfigurationOption.cs" />
     <Compile Include="Classes\DatabaseInformation.cs" />
     <Compile Include="Classes\CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Classes\DirectoryExtensions.cs" />
+    <Compile Include="Classes\ScaffoldBuilder.cs" />
     <Compile Include="Classes\SolutionHelper.cs" />
+    <Compile Include="Classes\SqlServerUtilities.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -9,6 +9,11 @@ namespace ScaffoldDbContextHelper.Classes
 {
     public class SolutionHelper : BaseExceptionProperties
     {
+        /// <summary>
+        /// Returns project names from a solution file
+        /// </summary>
+        /// <param name="solutionName"></param>
+        /// <returns></returns>
         public List<string> ProjectNames(string solutionName)
         {
             mHasException = false;
