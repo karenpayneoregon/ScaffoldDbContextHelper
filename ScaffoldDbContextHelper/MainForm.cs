@@ -15,8 +15,10 @@ namespace ScaffoldDbContextHelper
 {
     public partial class MainForm : Form
     {
-
-        private readonly ScaffoldBuilder _scaffoldBuilder = new ScaffoldBuilder("KARENS-PC"); 
+        /// <summary>
+        /// Change server name to your server name.
+        /// </summary>
+        private readonly ScaffoldBuilder _scaffoldBuilder = new ScaffoldBuilder(".\\SQLEXPRESS"); 
 
         public MainForm()
         {
