@@ -33,7 +33,7 @@ namespace ScaffoldDbContextHelper.Classes
             {
                 script = $"Scaffold-DbContext \"Server={ServerName}; " +
                          $"Database={configuration.DatabaseName};" +
-                         "Trusted_Connection=True;\" -Provider Microsoft.EntityFrameworkCore.SqlServer";
+                         $"Trusted_Connection=True;\" -Provider {configuration.Provider.Type}";
             }
             else
             {
@@ -97,6 +97,10 @@ namespace ScaffoldDbContextHelper.Classes
 
     public class ScaffoldConfigurationItem
     {
+        /// <summary>
+        /// Database type to target
+        /// </summary>
+        public DatabaseProvider Provider { get; set; } 
         /// <summary>
         /// Database name to work against to create a model
         /// </summary>

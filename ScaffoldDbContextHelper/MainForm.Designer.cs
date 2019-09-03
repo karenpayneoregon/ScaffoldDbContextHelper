@@ -54,6 +54,7 @@
             this.CopyToClipboardButton = new System.Windows.Forms.Button();
             this.SolutionFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.ProviderComboBox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -172,7 +173,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(620, 187);
+            this.label1.Location = new System.Drawing.Point(620, 205);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 16);
             this.label1.TabIndex = 7;
@@ -183,7 +184,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(620, 213);
+            this.label2.Location = new System.Drawing.Point(620, 231);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(148, 16);
             this.label2.TabIndex = 9;
@@ -215,7 +216,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(620, 161);
+            this.label3.Location = new System.Drawing.Point(620, 179);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(153, 16);
             this.label3.TabIndex = 12;
@@ -226,7 +227,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(620, 239);
+            this.label4.Location = new System.Drawing.Point(620, 257);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 16);
             this.label4.TabIndex = 17;
@@ -235,7 +236,7 @@
             // ContextNameTextBox
             // 
             this.ContextNameTextBox.CueBannerText = "Folder for DbContext";
-            this.ContextNameTextBox.Location = new System.Drawing.Point(424, 238);
+            this.ContextNameTextBox.Location = new System.Drawing.Point(424, 256);
             this.ContextNameTextBox.Name = "ContextNameTextBox";
             this.ContextNameTextBox.Size = new System.Drawing.Size(190, 20);
             this.ContextNameTextBox.TabIndex = 16;
@@ -244,7 +245,7 @@
             // ContextFolderTextBox
             // 
             this.ContextFolderTextBox.CueBannerText = "Folder for DbContext";
-            this.ContextFolderTextBox.Location = new System.Drawing.Point(424, 212);
+            this.ContextFolderTextBox.Location = new System.Drawing.Point(424, 230);
             this.ContextFolderTextBox.Name = "ContextFolderTextBox";
             this.ContextFolderTextBox.Size = new System.Drawing.Size(190, 20);
             this.ContextFolderTextBox.TabIndex = 15;
@@ -253,7 +254,7 @@
             // FolderTextBox
             // 
             this.FolderTextBox.CueBannerText = "Folder for models";
-            this.FolderTextBox.Location = new System.Drawing.Point(424, 183);
+            this.FolderTextBox.Location = new System.Drawing.Point(424, 201);
             this.FolderTextBox.Name = "FolderTextBox";
             this.FolderTextBox.Size = new System.Drawing.Size(190, 20);
             this.FolderTextBox.TabIndex = 14;
@@ -262,7 +263,7 @@
             // StartupProjectTextBox
             // 
             this.StartupProjectTextBox.CueBannerText = "Name of existing project";
-            this.StartupProjectTextBox.Location = new System.Drawing.Point(424, 157);
+            this.StartupProjectTextBox.Location = new System.Drawing.Point(424, 175);
             this.StartupProjectTextBox.Name = "StartupProjectTextBox";
             this.StartupProjectTextBox.Size = new System.Drawing.Size(171, 20);
             this.StartupProjectTextBox.TabIndex = 13;
@@ -280,7 +281,7 @@
             this.SolutionButton.FlatAppearance.BorderSize = 0;
             this.SolutionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SolutionButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.OpenfileDialog_16x;
-            this.SolutionButton.Location = new System.Drawing.Point(590, 155);
+            this.SolutionButton.Location = new System.Drawing.Point(590, 173);
             this.SolutionButton.Name = "SolutionButton";
             this.SolutionButton.Size = new System.Drawing.Size(26, 23);
             this.SolutionButton.TabIndex = 18;
@@ -292,7 +293,7 @@
             this.GenerateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.GenerateMethod_16x;
             this.GenerateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GenerateButton.Location = new System.Drawing.Point(425, 273);
+            this.GenerateButton.Location = new System.Drawing.Point(425, 291);
             this.GenerateButton.Name = "GenerateButton";
             this.GenerateButton.Size = new System.Drawing.Size(189, 23);
             this.GenerateButton.TabIndex = 2;
@@ -323,12 +324,22 @@
             this.panel2.Size = new System.Drawing.Size(406, 429);
             this.panel2.TabIndex = 19;
             // 
+            // ProviderComboBox
+            // 
+            this.ProviderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProviderComboBox.FormattingEnabled = true;
+            this.ProviderComboBox.Location = new System.Drawing.Point(424, 148);
+            this.ProviderComboBox.Name = "ProviderComboBox";
+            this.ProviderComboBox.Size = new System.Drawing.Size(190, 21);
+            this.ProviderComboBox.TabIndex = 20;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumOrchid;
             this.ClientSize = new System.Drawing.Size(790, 560);
+            this.Controls.Add(this.ProviderComboBox);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.SolutionButton);
             this.Controls.Add(this.label4);
@@ -387,6 +398,7 @@
         private System.Windows.Forms.Button SolutionButton;
         private System.Windows.Forms.OpenFileDialog SolutionFileDialog1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox ProviderComboBox;
     }
 }
 

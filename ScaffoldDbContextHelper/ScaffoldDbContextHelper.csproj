@@ -109,6 +109,8 @@
     <Compile Include="Classes\CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\DatabaseProvider.cs" />
+    <Compile Include="Classes\DatabaseProviders.cs" />
     <Compile Include="Classes\DirectoryExtensions.cs" />
     <Compile Include="Classes\ScaffoldBuilder.cs" />
     <Compile Include="Classes\SolutionHelper.cs" />

@@ -70,6 +70,8 @@ namespace ScaffoldDbContextHelper
             if (ops.IsSuccessFul)
             {
                 DatabaseListBox.DataSource = result;
+                var dataProvider = new DatabaseProviders();
+                ProviderComboBox.DataSource = dataProvider.List;
             }
             else
             {
@@ -144,6 +146,7 @@ namespace ScaffoldDbContextHelper
             var configuration = new ScaffoldConfigurationItem
             {
                 DatabaseName = DatabaseListBox.Text,
+                Provider = (DatabaseProvider)ProviderComboBox.SelectedItem,
                 TableNames = TablesCheckedListBox.CheckedItems.Cast<string>(),
                 ContextName = ContextNameTextBox.Text,
                 ContextDirectory = ContextFolderTextBox.Text,
