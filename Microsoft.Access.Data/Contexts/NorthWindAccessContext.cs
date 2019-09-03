@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Microsoft.Access.Data.Contexts
 {
-    public partial class NorthWindContext : DbContext
+    public partial class NorthWindAccessContext : DbContext
     {
-        public NorthWindContext()
+        public NorthWindAccessContext()
         {
         }
 
-        public NorthWindContext(DbContextOptions<NorthWindContext> options)
+        public NorthWindAccessContext(DbContextOptions<NorthWindAccessContext> options)
             : base(options)
         {
         }

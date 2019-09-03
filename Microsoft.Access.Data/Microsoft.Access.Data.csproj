@@ -132,7 +132,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexts\NorthWindContext.cs" />
+    <Compile Include="Contexts\NorthWindAccessContext.cs" />
     <Compile Include="LanguageExtensions\BindingSourceExtensions.cs" />
     <Compile Include="WorkingClasses\CustomerEntity.cs" />
     <Compile Include="Form1.cs">

@@ -30,7 +30,7 @@ namespace Microsoft.Access.Data
         {
             dataGridView1.AutoGenerateColumns = false;
 
-            using (var context = new NorthWindContext())
+            using (var context = new NorthWindAccessContext())
             {
                 var customerData = (from customer in context.Customers
                     join country in context.Countries on customer.CountryIdentifier equals country.CountryIdentifier

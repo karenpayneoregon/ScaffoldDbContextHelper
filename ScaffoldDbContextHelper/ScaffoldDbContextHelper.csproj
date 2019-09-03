@@ -113,6 +113,7 @@
     <Compile Include="Classes\DatabaseProviders.cs" />
     <Compile Include="Classes\DirectoryExtensions.cs" />
     <Compile Include="Classes\ScaffoldBuilder.cs" />
+    <Compile Include="Classes\ScaffoldConfigurationItem.cs" />
     <Compile Include="Classes\SolutionHelper.cs" />
     <Compile Include="Classes\SqlServerUtilities.cs" />
     <Compile Include="MainForm.cs">

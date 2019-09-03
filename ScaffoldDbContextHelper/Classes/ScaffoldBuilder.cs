@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +40,7 @@ namespace ScaffoldDbContextHelper.Classes
                 folderName = configuration.FolderName.Contains(" ") ? $"\"{configuration.FolderName}\"" : configuration.FolderName;
 
                 script = $"Scaffold-DbContext \"Server={ServerName};Database={configuration.DatabaseName};" +
-                         $"Trusted_Connection=True;\" -Provider Microsoft.EntityFrameworkCore.SqlServer " +
+                         $"Trusted_Connection=True;\" -Provider {configuration.Provider.Type} " +
                          $"-OutputDir {folderName}";
             }
 
@@ -76,6 +75,7 @@ namespace ScaffoldDbContextHelper.Classes
 
             if (!string.IsNullOrWhiteSpace(configuration.StartupProject))
             {
+                script += $" -project {configuration.StartupProject}";
                 script += $" -startupproject {configuration.StartupProject}";
             }
 
@@ -92,47 +92,6 @@ namespace ScaffoldDbContextHelper.Classes
 
 
             return script;
-        }
-    }
-
-    public class ScaffoldConfigurationItem
-    {
-        /// <summary>
-        /// Database type to target
-        /// </summary>
-        public DatabaseProvider Provider { get; set; } 
-        /// <summary>
-        /// Database name to work against to create a model
-        /// </summary>
-        public string DatabaseName { get; set; }
-        /// <summary>
-        /// Points to output folder for models folder
-        /// </summary>
-        public string FolderName { get; set; }
-        /// <summary>
-        /// Project to create models for
-        /// </summary>
-        public string StartupProject { get; set; }
-        /// <summary>
-        /// Name of DbContext
-        /// </summary>
-        public string ContextName { get; set; }
-        /// <summary>
-        /// Folder to place DbContext
-        /// </summary>
-        public string ContextDirectory { get; set; }
-        /// <summary>
-        /// Table names for models
-        /// </summary>
-        public IEnumerable<string> TableNames { get; set; }
-        /// <summary>
-        /// Switches/options
-        /// </summary>
-        public ConfigurationOption Switches { get; set; }
-
-        public ScaffoldConfigurationItem()
-        {
-            Switches = new ConfigurationOption();
         }
     }
 }

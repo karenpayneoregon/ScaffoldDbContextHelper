@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthWind.Data.NorthModels
+namespace NorthWind.Data.NorthSqlModels
 {
     public partial class ContactType
     {
@@ -12,11 +10,9 @@ namespace NorthWind.Data.NorthModels
             Customers = new HashSet<Customers>();
         }
 
-        [Key]
         public int ContactTypeIdentifier { get; set; }
         public string ContactTitle { get; set; }
 
-        [InverseProperty("ContactTypeIdentifierNavigation")]
         public virtual ICollection<Customers> Customers { get; set; }
     }
 }

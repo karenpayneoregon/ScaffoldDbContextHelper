@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Microsoft.Access.Data.NorthModels
+﻿namespace Microsoft.Access.Data.NorthModels 
 {
     public partial class Contacts
     {

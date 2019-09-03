@@ -124,33 +124,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contexts\DateTimeContext.cs" />
     <Compile Include="Contexts\EmailContext.cs" />
     <Compile Include="Contexts\MasterDetailSimpleContext.cs" />
-    <Compile Include="Contexts\NorthWindAzureContext.cs" />
+    <Compile Include="Contexts\NorthWindSqlContext.cs" />
+    <Compile Include="Contexts\RestaurantContext.cs" />
+    <Compile Include="DateModels\Events.cs" />
+    <Compile Include="DateModels\TimeTable.cs" />
     <Compile Include="EmailModels\CannedMessages.cs" />
     <Compile Include="EmailModels\EmailAddresses.cs" />
     <Compile Include="MasterModels\Customer.cs" />
     <Compile Include="MasterModels\OrderDetails.cs" />
     <Compile Include="MasterModels\Orders.cs" />
-    <Compile Include="NorthModels\Categories.cs" />
-    <Compile Include="NorthModels\Contacts.cs" />
-    <Compile Include="NorthModels\ContactType.cs" />
-    <Compile Include="NorthModels\Countries.cs" />
-    <Compile Include="NorthModels\Customers.cs" />
-    <Compile Include="NorthModels\Departments.cs" />
-    <Compile Include="NorthModels\Employees.cs" />
-    <Compile Include="NorthModels\ImageData.cs" />
-    <Compile Include="NorthModels\OrderDetails.cs" />
-    <Compile Include="NorthModels\Orders.cs" />
-    <Compile Include="NorthModels\Products.cs" />
-    <Compile Include="NorthModels\Report.cs" />
-    <Compile Include="NorthModels\ReportParameters.cs" />
-    <Compile Include="NorthModels\ReportStatements.cs" />
-    <Compile Include="NorthModels\Shippers.cs" />
-    <Compile Include="NorthModels\Suppliers.cs" />
-    <Compile Include="NorthModels\TableNames.cs" />
-    <Compile Include="NorthModels\Types.cs" />
+    <Compile Include="NorthSqlModels\Contacts.cs" />
+    <Compile Include="NorthSqlModels\ContactType.cs" />
+    <Compile Include="NorthSqlModels\Countries.cs" />
+    <Compile Include="NorthSqlModels\Customers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResturantModels\BreakfastItems.cs" />
+    <Compile Include="ResturantModels\BreakfastOrderItems.cs" />
+    <Compile Include="ResturantModels\BreakfastOrders.cs" />
+    <Compile Include="ResturantModels\Guests.cs" />
+    <Compile Include="ResturantModels\Rooms.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
