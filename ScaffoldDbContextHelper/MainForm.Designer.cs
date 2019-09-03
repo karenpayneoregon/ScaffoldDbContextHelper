@@ -44,17 +44,20 @@
             this.UseDatabaseNamesCheckBox = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ContextNameTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.ContextFolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.FolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.StartupProjectTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.ListBoxSearchTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.SolutionButton = new System.Windows.Forms.Button();
             this.GenerateButton = new System.Windows.Forms.Button();
             this.CopyToClipboardButton = new System.Windows.Forms.Button();
             this.SolutionFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ProviderComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ServerNameTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
+            this.ContextNameTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
+            this.ContextFolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
+            this.FolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
+            this.StartupProjectTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
+            this.ListBoxSearchTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -173,7 +176,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(620, 205);
+            this.label1.Location = new System.Drawing.Point(620, 228);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 16);
             this.label1.TabIndex = 7;
@@ -184,7 +187,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(620, 231);
+            this.label2.Location = new System.Drawing.Point(620, 254);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(148, 16);
             this.label2.TabIndex = 9;
@@ -216,7 +219,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(620, 179);
+            this.label3.Location = new System.Drawing.Point(620, 202);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(153, 16);
             this.label3.TabIndex = 12;
@@ -227,61 +230,18 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(620, 257);
+            this.label4.Location = new System.Drawing.Point(620, 280);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 16);
             this.label4.TabIndex = 17;
             this.label4.Text = "Context name (optional)";
-            // 
-            // ContextNameTextBox
-            // 
-            this.ContextNameTextBox.CueBannerText = "Folder for DbContext";
-            this.ContextNameTextBox.Location = new System.Drawing.Point(424, 256);
-            this.ContextNameTextBox.Name = "ContextNameTextBox";
-            this.ContextNameTextBox.Size = new System.Drawing.Size(190, 20);
-            this.ContextNameTextBox.TabIndex = 16;
-            this.ContextNameTextBox.Text = "Context name";
-            // 
-            // ContextFolderTextBox
-            // 
-            this.ContextFolderTextBox.CueBannerText = "Folder for DbContext";
-            this.ContextFolderTextBox.Location = new System.Drawing.Point(424, 230);
-            this.ContextFolderTextBox.Name = "ContextFolderTextBox";
-            this.ContextFolderTextBox.Size = new System.Drawing.Size(190, 20);
-            this.ContextFolderTextBox.TabIndex = 15;
-            this.ContextFolderTextBox.Text = "Context";
-            // 
-            // FolderTextBox
-            // 
-            this.FolderTextBox.CueBannerText = "Folder for models";
-            this.FolderTextBox.Location = new System.Drawing.Point(424, 201);
-            this.FolderTextBox.Name = "FolderTextBox";
-            this.FolderTextBox.Size = new System.Drawing.Size(190, 20);
-            this.FolderTextBox.TabIndex = 14;
-            this.FolderTextBox.Text = "Models";
-            // 
-            // StartupProjectTextBox
-            // 
-            this.StartupProjectTextBox.CueBannerText = "Name of existing project";
-            this.StartupProjectTextBox.Location = new System.Drawing.Point(424, 175);
-            this.StartupProjectTextBox.Name = "StartupProjectTextBox";
-            this.StartupProjectTextBox.Size = new System.Drawing.Size(171, 20);
-            this.StartupProjectTextBox.TabIndex = 13;
-            // 
-            // ListBoxSearchTextBox
-            // 
-            this.ListBoxSearchTextBox.CueBannerText = "Enter database name";
-            this.ListBoxSearchTextBox.Location = new System.Drawing.Point(12, 7);
-            this.ListBoxSearchTextBox.Name = "ListBoxSearchTextBox";
-            this.ListBoxSearchTextBox.Size = new System.Drawing.Size(215, 20);
-            this.ListBoxSearchTextBox.TabIndex = 0;
             // 
             // SolutionButton
             // 
             this.SolutionButton.FlatAppearance.BorderSize = 0;
             this.SolutionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SolutionButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.OpenfileDialog_16x;
-            this.SolutionButton.Location = new System.Drawing.Point(590, 173);
+            this.SolutionButton.Location = new System.Drawing.Point(590, 196);
             this.SolutionButton.Name = "SolutionButton";
             this.SolutionButton.Size = new System.Drawing.Size(26, 23);
             this.SolutionButton.TabIndex = 18;
@@ -293,7 +253,7 @@
             this.GenerateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenerateButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.GenerateMethod_16x;
             this.GenerateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GenerateButton.Location = new System.Drawing.Point(425, 291);
+            this.GenerateButton.Location = new System.Drawing.Point(425, 314);
             this.GenerateButton.Name = "GenerateButton";
             this.GenerateButton.Size = new System.Drawing.Size(189, 23);
             this.GenerateButton.TabIndex = 2;
@@ -328,10 +288,83 @@
             // 
             this.ProviderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProviderComboBox.FormattingEnabled = true;
-            this.ProviderComboBox.Location = new System.Drawing.Point(424, 148);
+            this.ProviderComboBox.Location = new System.Drawing.Point(424, 171);
             this.ProviderComboBox.Name = "ProviderComboBox";
             this.ProviderComboBox.Size = new System.Drawing.Size(190, 21);
             this.ProviderComboBox.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(620, 172);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 16);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Database Provider";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(620, 149);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 16);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Server name";
+            // 
+            // ServerNameTextBox
+            // 
+            this.ServerNameTextBox.CueBannerText = "Server name";
+            this.ServerNameTextBox.Location = new System.Drawing.Point(424, 145);
+            this.ServerNameTextBox.Name = "ServerNameTextBox";
+            this.ServerNameTextBox.Size = new System.Drawing.Size(190, 20);
+            this.ServerNameTextBox.TabIndex = 22;
+            // 
+            // ContextNameTextBox
+            // 
+            this.ContextNameTextBox.CueBannerText = "Folder for DbContext";
+            this.ContextNameTextBox.Location = new System.Drawing.Point(424, 279);
+            this.ContextNameTextBox.Name = "ContextNameTextBox";
+            this.ContextNameTextBox.Size = new System.Drawing.Size(190, 20);
+            this.ContextNameTextBox.TabIndex = 16;
+            this.ContextNameTextBox.Text = "Context name";
+            // 
+            // ContextFolderTextBox
+            // 
+            this.ContextFolderTextBox.CueBannerText = "Folder for DbContext";
+            this.ContextFolderTextBox.Location = new System.Drawing.Point(424, 253);
+            this.ContextFolderTextBox.Name = "ContextFolderTextBox";
+            this.ContextFolderTextBox.Size = new System.Drawing.Size(190, 20);
+            this.ContextFolderTextBox.TabIndex = 15;
+            this.ContextFolderTextBox.Text = "Context";
+            // 
+            // FolderTextBox
+            // 
+            this.FolderTextBox.CueBannerText = "Folder for models";
+            this.FolderTextBox.Location = new System.Drawing.Point(424, 224);
+            this.FolderTextBox.Name = "FolderTextBox";
+            this.FolderTextBox.Size = new System.Drawing.Size(190, 20);
+            this.FolderTextBox.TabIndex = 14;
+            this.FolderTextBox.Text = "Models";
+            // 
+            // StartupProjectTextBox
+            // 
+            this.StartupProjectTextBox.CueBannerText = "Name of existing project";
+            this.StartupProjectTextBox.Location = new System.Drawing.Point(424, 198);
+            this.StartupProjectTextBox.Name = "StartupProjectTextBox";
+            this.StartupProjectTextBox.Size = new System.Drawing.Size(171, 20);
+            this.StartupProjectTextBox.TabIndex = 13;
+            // 
+            // ListBoxSearchTextBox
+            // 
+            this.ListBoxSearchTextBox.CueBannerText = "Enter database name";
+            this.ListBoxSearchTextBox.Location = new System.Drawing.Point(12, 7);
+            this.ListBoxSearchTextBox.Name = "ListBoxSearchTextBox";
+            this.ListBoxSearchTextBox.Size = new System.Drawing.Size(215, 20);
+            this.ListBoxSearchTextBox.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -339,6 +372,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumOrchid;
             this.ClientSize = new System.Drawing.Size(790, 560);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.ServerNameTextBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.ProviderComboBox);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.SolutionButton);
@@ -399,6 +435,9 @@
         private System.Windows.Forms.OpenFileDialog SolutionFileDialog1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox ProviderComboBox;
+        private System.Windows.Forms.Label label5;
+        private Classes.CueTextBox ServerNameTextBox;
+        private System.Windows.Forms.Label label6;
     }
 }
 

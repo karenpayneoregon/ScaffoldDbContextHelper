@@ -35,6 +35,7 @@ namespace ScaffoldDbContextHelper
             SolutionFileDialog1.InitialDirectory = AppDomain.CurrentDomain
                 .BaseDirectory.CurrentSolutionFolder();
 
+            ServerNameTextBox.Text = _scaffoldBuilder.ServerName;
         }
 
         /// <summary>
@@ -81,6 +82,12 @@ namespace ScaffoldDbContextHelper
         }
         private void GetDatabaseNamesButton_Click(object sender, EventArgs e)
         {
+
+            if (!string.IsNullOrWhiteSpace(ServerNameTextBox.Text))
+            {
+                _scaffoldBuilder.ServerName = ServerNameTextBox.Text;
+            }
+
             var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
             var result = ops.DatabaseNames();
 
@@ -103,6 +110,11 @@ namespace ScaffoldDbContextHelper
         private void GetTablesForSelectedDatabase()
         {
             if (DatabaseListBox.DataSource == null) return;
+
+            if (!string.IsNullOrWhiteSpace(ServerNameTextBox.Text))
+            {
+                _scaffoldBuilder.ServerName = ServerNameTextBox.Text;
+            }
 
             var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
 
@@ -159,6 +171,11 @@ namespace ScaffoldDbContextHelper
                     UseDataAnnotations = DataAnnotationsCheckBox.Checked
                 }
             };
+
+            if (!string.IsNullOrWhiteSpace(ServerNameTextBox.Text))
+            {
+                _scaffoldBuilder.ServerName = ServerNameTextBox.Text;
+            }
 
             ScriptTextBox.Text = _scaffoldBuilder.Generate(configuration);
 
