@@ -4,9 +4,10 @@
     {
         public string LastServerName { get; set; }
         public string StartupProject { get; set; }
+        public string DataProvider { get; set; }
         public override string ToString()
         {
-            return $"{LastServerName}, {StartupProject}";
+            return $"{LastServerName}, {StartupProject}, {DataProvider}";
         }
     }
 }

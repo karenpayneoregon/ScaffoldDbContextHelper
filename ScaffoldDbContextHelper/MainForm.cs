@@ -20,49 +20,50 @@ namespace ScaffoldDbContextHelper
         /// Change server name to your server name.
         /// </summary>
         private ScaffoldBuilder _scaffoldBuilder = new ScaffoldBuilder(".\\SQLEXPRESS");
-
         private string _applicationSettingsFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppSettings.json");
 
         public MainForm()
         {
             InitializeComponent();
-
             Shown += Form1_Shown;
 
             ListBoxSearchTextBox.TextChanged += ListBoxSearchTextBox_TextChanged;
-
-            /*
-             * The alternate is to set the following as an argument
-             * to arguments for Tools item for the app $(SolutionDir)
-             */
-            SolutionFileDialog1.InitialDirectory = AppDomain.CurrentDomain
-                .BaseDirectory.CurrentSolutionFolder();
-
+            SolutionFileDialog1.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory.CurrentSolutionFolder();
             ServerNameTextBox.Text = _scaffoldBuilder.ServerName;
 
             ReadApplicationSettingsFile();
         }
         /// <summary>
-        /// Read setting from application setting json file
+        /// Read setting from application setting json file (decided not to do StartupProject)
         /// </summary>
         private void ReadApplicationSettingsFile()
         {
             using (var file = File.OpenText(_applicationSettingsFile))
             {
                 var serializer = new JsonSerializer();
-                try
+                var applicationSettings = (ApplicationSettings)serializer.Deserialize(file, typeof(ApplicationSettings));
+
+                if (!string.IsNullOrWhiteSpace(applicationSettings.LastServerName))
                 {
-                    var applicationSettings = (ApplicationSettings)serializer.Deserialize(file, typeof(ApplicationSettings));
-
-                    if (string.IsNullOrWhiteSpace(applicationSettings.LastServerName)) return;
-
                     ServerNameTextBox.Text = applicationSettings.LastServerName;
-                    _scaffoldBuilder = new ScaffoldBuilder(applicationSettings.LastServerName);
                 }
-                catch (Exception ex)
+
+                var dataProvider = new DatabaseProviders();
+                ProviderComboBox.DataSource = dataProvider.List;
+
+                if (!string.IsNullOrWhiteSpace(applicationSettings.DataProvider))
                 {
-                    // handle exception e.g. malformed json
+                    if (ProviderComboBox.DataSource != null)
+                    {
+                        var index = ProviderComboBox.FindString(applicationSettings.DataProvider);
+                        if (index > -1)
+                        {
+                            ProviderComboBox.SelectedIndex = index;
+                        }
+                    }
                 }
+                _scaffoldBuilder = new ScaffoldBuilder(applicationSettings.LastServerName);
+
             }
         }
         /// <summary>
@@ -73,7 +74,8 @@ namespace ScaffoldDbContextHelper
             var applicationSettings = new ApplicationSettings()
             {
                 LastServerName = ServerNameTextBox.Text,
-                StartupProject = StartupProjectTextBox.Text
+                StartupProject = StartupProjectTextBox.Text,
+                DataProvider = ProviderComboBox.Text
             };
 
             using (var file = File.CreateText(_applicationSettingsFile))
@@ -107,21 +109,24 @@ namespace ScaffoldDbContextHelper
         /// </summary>
         private void Form1_Shown(object sender, EventArgs e)
         {
-            var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
-
-            var result = ops.DatabaseNames();
-
-            if (ops.IsSuccessFul)
+            if (!string.IsNullOrWhiteSpace(_scaffoldBuilder.ServerName))
             {
-                DatabaseListBox.DataSource = result;
-                var dataProvider = new DatabaseProviders();
-                ProviderComboBox.DataSource = dataProvider.List;
-            }
-            else
-            {
+                var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
 
-                MessageBox.Show($"Error: {ops.LastExceptionMessage}");
+                var result = ops.DatabaseNames();
+
+                if (ops.IsSuccessFul)
+                {
+                    DatabaseListBox.DataSource = result;
+
+                }
+                else
+                {
+
+                    MessageBox.Show($"Error: {ops.LastExceptionMessage}");
+                }
             }
+
         }
         private void GetDatabaseNamesButton_Click(object sender, EventArgs e)
         {
@@ -152,9 +157,6 @@ namespace ScaffoldDbContextHelper
         {
             GetTablesForSelectedDatabase();
         }
-        /// <summary>
-        /// Populate CheckedListBox with table names from the selected database
-        /// </summary>
         private void GetTablesForSelectedDatabase()
         {
             if (DatabaseListBox.DataSource == null) return;
@@ -198,7 +200,7 @@ namespace ScaffoldDbContextHelper
             {
                 MessageBox.Show("Requires a database, one or more tables along with a startup folder!");
                 return;
-            } 
+            }
 
             ScriptTextBox.Text = "";
             var configuration = new ScaffoldConfigurationItem
@@ -275,7 +277,6 @@ namespace ScaffoldDbContextHelper
                 .Select(row => row.Field<string>("InstanceName")).ToList();
 
             var serverForm = new ServersForm(serverNameList);
-
             if (serverForm.ShowDialog() == DialogResult.OK)
             {
                 if (string.IsNullOrWhiteSpace(serverForm.ServerName))
@@ -283,12 +284,9 @@ namespace ScaffoldDbContextHelper
                     return;
                 }
 
-                if (serverForm.ServerName == "SQLEXPRESS")
-                {
-
-                    ServerNameTextBox.Invoke(new Action(() =>
-                        ServerNameTextBox.Text = $@".\{serverForm.ServerName}"));
-                }
+                ServerNameTextBox.Invoke(serverForm.ServerName == "SQLEXPRESS"
+                    ? new Action(() => ServerNameTextBox.Text = $@".\{serverForm.ServerName}")
+                    : new Action(() => ServerNameTextBox.Text = $"{serverForm.ServerName}"));
             }
         }
         private void ExitButton_Click(object sender, EventArgs e)
