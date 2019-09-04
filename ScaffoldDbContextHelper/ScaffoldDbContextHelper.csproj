@@ -108,17 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ApplicationSettings.cs" />
-    <Compile Include="Classes\ConfigurationOption.cs" />
-    <Compile Include="Classes\DatabaseInformation.cs" />
+    <Compile Include="Classes\SqlServerDatabaseInformation.cs" />
     <Compile Include="Classes\CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\DatabaseProvider.cs" />
-    <Compile Include="Classes\DatabaseProviders.cs" />
-    <Compile Include="Classes\DirectoryExtensions.cs" />
     <Compile Include="Classes\ScaffoldBuilder.cs" />
-    <Compile Include="Classes\ScaffoldConfigurationItem.cs" />
-    <Compile Include="Classes\SolutionHelper.cs" />
+    <Compile Include="Classes\SqlServerScaffoldConfigurationItem.cs" />
     <Compile Include="Classes\SqlServerUtilities.cs" />
     <Compile Include="Forms\ServersForm.cs">
       <SubType>Form</SubType>
@@ -196,7 +191,12 @@
   <ItemGroup>
     <None Include="Resources\OpenfileDialog_16x.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{b77799ca-516c-4b92-a3c3-f90fbadd36b7}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -22,27 +22,44 @@ namespace ScaffoldDbContextHelper.Classes
         {
             ServerName = serverName;
         }
-
-        public string Generate(ScaffoldConfigurationItem configuration)
+        /// <summary>
+        /// Create a scaffold command for SQL-Server, Oracle and MS-Access are
+        /// stubbed out, feel free to finish.
+        /// </summary>
+        /// <param name="configuration"></param>
+        /// <returns></returns>
+        public string Generate(SqlServerScaffoldConfigurationItem configuration)
         {
 
             var script = "";
 
-            if (string.IsNullOrWhiteSpace(configuration.FolderName))
+            if (configuration.Provider.Type == "Microsoft.EntityFrameworkCore.SqlServer")
             {
-                script = $"Scaffold-DbContext \"Server={ServerName}; " +
-                         $"Database={configuration.DatabaseName};" +
-                         $"Trusted_Connection=True;\" -Provider {configuration.Provider.Type}";
-            }
-            else
-            {
-                var folderName = "";
-                folderName = configuration.FolderName.Contains(" ") ? $"\"{configuration.FolderName}\"" : configuration.FolderName;
+                if (string.IsNullOrWhiteSpace(configuration.FolderName))
+                {
+                    script = $"Scaffold-DbContext \"Server={ServerName}; " +
+                             $"Database={configuration.DatabaseName};" +
+                             $"Trusted_Connection=True;\" -Provider {configuration.Provider.Type}";
+                }
+                else
+                {
+                    var folderName = "";
+                    folderName = configuration.FolderName.Contains(" ") ? $"\"{configuration.FolderName}\"" : configuration.FolderName;
 
-                script = $"Scaffold-DbContext \"Server={ServerName};Database={configuration.DatabaseName};" +
-                         $"Trusted_Connection=True;\" -Provider {configuration.Provider.Type} " +
-                         $"-OutputDir {folderName}";
+                    script = $"Scaffold-DbContext \"Server={ServerName};Database={configuration.DatabaseName};" +
+                             $"Trusted_Connection=True;\" -Provider {configuration.Provider.Type} " +
+                             $"-OutputDir {folderName}";
+                }
+            }else if (configuration.Provider.Type == "Oracle.EntityFrameworkCore")
+            {
+                script =  "Data Source=TODO;Persist Security Info=True;Enlist=false;Pooling=true;Statement Cache Size=10;User ID=TODO;Password=TODO;";
             }
+            else if (configuration.Provider.Type == "EntityFrameworkCore.Jet")
+            {
+                script = "\"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Database1.accdb\"";
+            }
+
+
 
 
             if (!string.IsNullOrWhiteSpace(configuration.ContextName))

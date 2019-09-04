@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using CommonLibrary;
 
 namespace ScaffoldDbContextHelper.Classes
 {
-    public class ScaffoldConfigurationItem
+    public class SqlServerScaffoldConfigurationItem
     {
         /// <summary>
         /// Database type to target
@@ -37,7 +38,7 @@ namespace ScaffoldDbContextHelper.Classes
         /// </summary>
         public ConfigurationOption Switches { get; set; }
 
-        public ScaffoldConfigurationItem()
+        public SqlServerScaffoldConfigurationItem()
         {
             Switches = new ConfigurationOption();
         }

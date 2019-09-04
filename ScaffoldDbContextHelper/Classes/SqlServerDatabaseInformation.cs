@@ -8,13 +8,13 @@ using BaseConnectionLibrary.ConnectionClasses;
 
 namespace ScaffoldDbContextHelper.Classes
 {
-    public class DatabaseInformation : SqlServerConnection
+    public class SqlServerDatabaseInformation : SqlServerConnection
     {
         /// <summary>
         /// Available server e.g. SQLEXPRESS, named server, localdb
         /// </summary>
         /// <param name="pServerName">Server name</param>
-        public DatabaseInformation(string pServerName)
+        public SqlServerDatabaseInformation(string pServerName)
         {
             DatabaseServer = pServerName;
 

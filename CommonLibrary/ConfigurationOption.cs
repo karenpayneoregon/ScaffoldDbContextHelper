@@ -1,4 +1,4 @@
-﻿namespace ScaffoldDbContextHelper.Classes
+﻿namespace CommonLibrary
 {
     /// <summary>
     /// Various scaffold switches

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace ScaffoldDbContextHelper.Classes
+namespace CommonLibrary
 {
     public static class DirectoryExtensions
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using BaseConnectionLibrary;
 
-namespace ScaffoldDbContextHelper.Classes
+namespace CommonLibrary
 {
     public class SolutionHelper : BaseExceptionProperties
     {

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CommonLibrary;
 using Newtonsoft.Json;
 using ScaffoldDbContextHelper.Classes;
 using ScaffoldDbContextHelper.Forms;
@@ -71,12 +72,14 @@ namespace ScaffoldDbContextHelper
         /// </summary>
         private void SaveApplicationSettings()
         {
+            
             var applicationSettings = new ApplicationSettings()
             {
                 LastServerName = ServerNameTextBox.Text,
-                StartupProject = StartupProjectTextBox.Text,
-                DataProvider = ProviderComboBox.Text
+                StartupProject = StartupProjectTextBox.Text
             };
+
+            ProviderComboBox.Invoke(new Action(() => applicationSettings.DataProvider = ProviderComboBox.Text));
 
             using (var file = File.CreateText(_applicationSettingsFile))
             {
@@ -111,7 +114,7 @@ namespace ScaffoldDbContextHelper
         {
             if (!string.IsNullOrWhiteSpace(_scaffoldBuilder.ServerName))
             {
-                var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
+                var ops = new SqlServerDatabaseInformation(_scaffoldBuilder.ServerName);
 
                 var result = ops.DatabaseNames();
 
@@ -141,7 +144,7 @@ namespace ScaffoldDbContextHelper
                 _scaffoldBuilder.ServerName = ServerNameTextBox.Text;
             }
 
-            var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
+            var ops = new SqlServerDatabaseInformation(_scaffoldBuilder.ServerName);
             var result = ops.DatabaseNames();
 
             if (ops.IsSuccessFul)
@@ -166,7 +169,7 @@ namespace ScaffoldDbContextHelper
                 _scaffoldBuilder.ServerName = ServerNameTextBox.Text;
             }
 
-            var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
+            var ops = new SqlServerDatabaseInformation(_scaffoldBuilder.ServerName);
 
             ContextNameTextBox.Text = $"{DatabaseListBox.Text}Context";
 
@@ -203,7 +206,7 @@ namespace ScaffoldDbContextHelper
             }
 
             ScriptTextBox.Text = "";
-            var configuration = new ScaffoldConfigurationItem
+            var configuration = new SqlServerScaffoldConfigurationItem
             {
                 DatabaseName = DatabaseListBox.Text,
                 Provider = (DatabaseProvider)ProviderComboBox.SelectedItem,
@@ -287,6 +290,7 @@ namespace ScaffoldDbContextHelper
                 ServerNameTextBox.Invoke(serverForm.ServerName == "SQLEXPRESS"
                     ? new Action(() => ServerNameTextBox.Text = $@".\{serverForm.ServerName}")
                     : new Action(() => ServerNameTextBox.Text = $"{serverForm.ServerName}"));
+                SaveApplicationSettings();
             }
         }
         private void ExitButton_Click(object sender, EventArgs e)
