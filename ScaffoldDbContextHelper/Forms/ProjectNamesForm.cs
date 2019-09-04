@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ScaffoldDbContextHelper
+namespace ScaffoldDbContextHelper.Forms
 {
     public partial class ProjectNamesForm : Form
     {

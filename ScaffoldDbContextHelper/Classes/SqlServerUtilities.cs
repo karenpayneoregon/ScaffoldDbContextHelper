@@ -109,7 +109,7 @@ namespace ScaffoldDbContextHelper.Classes
                               ORDER BY s.name ASC, o.name ASC";
 
                     cn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (var reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -131,21 +131,17 @@ namespace ScaffoldDbContextHelper.Classes
         /// Determine if SQL-Server is available 
         /// </summary> 
         /// <returns></returns> 
-        public async Task<bool> SqlServerIsAvailable()
+        public async Task<DataTable> SqlServerInstances()
         {
             mHasException = false;
-            bool success = false;
 
             try
             {
-                await Task.Run(() =>
+                return await Task.Run(() =>
                 {
-                    SqlDataSourceEnumerator sqlDataSourceEnumeratorInstance = SqlDataSourceEnumerator.Instance;
+                    var sqlDataSourceEnumeratorInstance = SqlDataSourceEnumerator.Instance;
                     DataTable dt = sqlDataSourceEnumeratorInstance.GetDataSources();
-                    if (dt != null)
-                    {
-                        success = true;
-                    }
+                    return dt;
                 });
             }
             catch (Exception ex)
@@ -154,7 +150,7 @@ namespace ScaffoldDbContextHelper.Classes
                 mLastException = ex;
             }
 
-            return success;
+            return new DataTable();
         }
         /// <summary> 
         /// Determine if a specific SQL-Server is available 

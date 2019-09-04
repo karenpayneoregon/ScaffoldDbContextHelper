@@ -58,6 +58,7 @@
             this.FolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.StartupProjectTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.ListBoxSearchTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
+            this.ServerButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -320,7 +321,7 @@
             this.ServerNameTextBox.CueBannerText = "Server name";
             this.ServerNameTextBox.Location = new System.Drawing.Point(424, 145);
             this.ServerNameTextBox.Name = "ServerNameTextBox";
-            this.ServerNameTextBox.Size = new System.Drawing.Size(190, 20);
+            this.ServerNameTextBox.Size = new System.Drawing.Size(171, 20);
             this.ServerNameTextBox.TabIndex = 22;
             // 
             // ContextNameTextBox
@@ -366,12 +367,25 @@
             this.ListBoxSearchTextBox.Size = new System.Drawing.Size(215, 20);
             this.ListBoxSearchTextBox.TabIndex = 0;
             // 
+            // ServerButton
+            // 
+            this.ServerButton.FlatAppearance.BorderSize = 0;
+            this.ServerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ServerButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.OpenfileDialog_16x;
+            this.ServerButton.Location = new System.Drawing.Point(590, 145);
+            this.ServerButton.Name = "ServerButton";
+            this.ServerButton.Size = new System.Drawing.Size(26, 23);
+            this.ServerButton.TabIndex = 24;
+            this.ServerButton.UseVisualStyleBackColor = true;
+            this.ServerButton.Click += new System.EventHandler(this.ServerButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumOrchid;
             this.ClientSize = new System.Drawing.Size(790, 560);
+            this.Controls.Add(this.ServerButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ServerNameTextBox);
             this.Controls.Add(this.label5);
@@ -438,6 +452,7 @@
         private System.Windows.Forms.Label label5;
         private Classes.CueTextBox ServerNameTextBox;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button ServerButton;
     }
 }
 

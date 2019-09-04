@@ -39,6 +39,9 @@
     <Reference Include="BaseConnectionLibrary, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BaseConnectionLibrary.1.0.3\lib\net461\BaseConnectionLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -104,6 +107,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ApplicationSettings.cs" />
     <Compile Include="Classes\ConfigurationOption.cs" />
     <Compile Include="Classes\DatabaseInformation.cs" />
     <Compile Include="Classes\CueTextBox.cs">
@@ -116,6 +120,12 @@
     <Compile Include="Classes\ScaffoldConfigurationItem.cs" />
     <Compile Include="Classes\SolutionHelper.cs" />
     <Compile Include="Classes\SqlServerUtilities.cs" />
+    <Compile Include="Forms\ServersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ServersForm.Designer.cs">
+      <DependentUpon>ServersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,17 +134,20 @@
     </Compile>
     <Compile Include="Classes\KarenDialogs.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="ProjectNamesForm.cs">
+    <Compile Include="Forms\ProjectNamesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProjectNamesForm.Designer.cs">
+    <Compile Include="Forms\ProjectNamesForm.Designer.cs">
       <DependentUpon>ProjectNamesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ServersForm.resx">
+      <DependentUpon>ServersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectNamesForm.resx">
+    <EmbeddedResource Include="Forms\ProjectNamesForm.resx">
       <DependentUpon>ProjectNamesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -147,6 +160,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -180,6 +196,7 @@
   <ItemGroup>
     <None Include="Resources\OpenfileDialog_16x.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

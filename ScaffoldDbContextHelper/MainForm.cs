@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using ScaffoldDbContextHelper.Classes;
+using ScaffoldDbContextHelper.Forms;
 using static ScaffoldDbContextHelper.Classes.KarenDialogs;
 
 namespace ScaffoldDbContextHelper
@@ -18,7 +19,9 @@ namespace ScaffoldDbContextHelper
         /// <summary>
         /// Change server name to your server name.
         /// </summary>
-        private readonly ScaffoldBuilder _scaffoldBuilder = new ScaffoldBuilder(".\\SQLEXPRESS"); 
+        private ScaffoldBuilder _scaffoldBuilder = new ScaffoldBuilder(".\\SQLEXPRESS");
+
+        private string _applicationSettingsFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppSettings.json");
 
         public MainForm()
         {
@@ -36,6 +39,48 @@ namespace ScaffoldDbContextHelper
                 .BaseDirectory.CurrentSolutionFolder();
 
             ServerNameTextBox.Text = _scaffoldBuilder.ServerName;
+
+            ReadApplicationSettingsFile();
+        }
+        /// <summary>
+        /// Read setting from application setting json file
+        /// </summary>
+        private void ReadApplicationSettingsFile()
+        {
+            using (var file = File.OpenText(_applicationSettingsFile))
+            {
+                var serializer = new JsonSerializer();
+                try
+                {
+                    var applicationSettings = (ApplicationSettings)serializer.Deserialize(file, typeof(ApplicationSettings));
+
+                    if (string.IsNullOrWhiteSpace(applicationSettings.LastServerName)) return;
+
+                    ServerNameTextBox.Text = applicationSettings.LastServerName;
+                    _scaffoldBuilder = new ScaffoldBuilder(applicationSettings.LastServerName);
+                }
+                catch (Exception ex)
+                {
+                    // handle exception e.g. malformed json
+                }
+            }
+        }
+        /// <summary>
+        /// Update application json file
+        /// </summary>
+        private void SaveApplicationSettings()
+        {
+            var applicationSettings = new ApplicationSettings()
+            {
+                LastServerName = ServerNameTextBox.Text,
+                StartupProject = StartupProjectTextBox.Text
+            };
+
+            using (var file = File.CreateText(_applicationSettingsFile))
+            {
+                var serializer = new JsonSerializer { Formatting = Formatting.Indented };
+                serializer.Serialize(file, applicationSettings);
+            }
         }
 
         /// <summary>
@@ -60,8 +105,6 @@ namespace ScaffoldDbContextHelper
         /// <summary>
         /// Get databases from ServerName form level variable above
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void Form1_Shown(object sender, EventArgs e)
         {
             var ops = new DatabaseInformation(_scaffoldBuilder.ServerName);
@@ -82,6 +125,11 @@ namespace ScaffoldDbContextHelper
         }
         private void GetDatabaseNamesButton_Click(object sender, EventArgs e)
         {
+            if (ProviderComboBox.DataSource == null)
+            {
+                var dataProvider = new DatabaseProviders();
+                ProviderComboBox.DataSource = dataProvider.List;
+            }
 
             if (!string.IsNullOrWhiteSpace(ServerNameTextBox.Text))
             {
@@ -146,7 +194,6 @@ namespace ScaffoldDbContextHelper
         /// <param name="e"></param>
         private void GenerateButton_Click(object sender, EventArgs e)
         {
-
             if (DatabaseListBox.DataSource == null || TablesCheckedListBox.DataSource == null || TablesCheckedListBox.CheckedItems.Count <= 0 || string.IsNullOrWhiteSpace(StartupProjectTextBox.Text))
             {
                 MessageBox.Show("Requires a database, one or more tables along with a startup folder!");
@@ -154,7 +201,6 @@ namespace ScaffoldDbContextHelper
             } 
 
             ScriptTextBox.Text = "";
-
             var configuration = new ScaffoldConfigurationItem
             {
                 DatabaseName = DatabaseListBox.Text,
@@ -178,7 +224,7 @@ namespace ScaffoldDbContextHelper
             }
 
             ScriptTextBox.Text = _scaffoldBuilder.Generate(configuration);
-
+            SaveApplicationSettings();
         }
         /// <summary>
         /// Copy Scaffold script to windows clipboard
@@ -193,7 +239,6 @@ namespace ScaffoldDbContextHelper
             {
                 Clipboard.SetText(ScriptTextBox.Text);
             }
-
         }
         /// <summary>
         /// Get base project names for a selected solution
@@ -219,7 +264,31 @@ namespace ScaffoldDbContextHelper
                 {
                     MessageBox.Show(ops.LastExceptionMessage);
                 }
+            }
+        }
+        private async void ServerButton_Click(object sender, EventArgs e)
+        {
+            var ops = new SqlServerUtilities();
+            var serverDataTable = await ops.SqlServerInstances().ConfigureAwait(false);
+            var serverNameList = serverDataTable.AsEnumerable()
+                .Where(row => !string.IsNullOrWhiteSpace(row.Field<string>("InstanceName")))
+                .Select(row => row.Field<string>("InstanceName")).ToList();
 
+            var serverForm = new ServersForm(serverNameList);
+
+            if (serverForm.ShowDialog() == DialogResult.OK)
+            {
+                if (string.IsNullOrWhiteSpace(serverForm.ServerName))
+                {
+                    return;
+                }
+
+                if (serverForm.ServerName == "SQLEXPRESS")
+                {
+
+                    ServerNameTextBox.Invoke(new Action(() =>
+                        ServerNameTextBox.Text = $@".\{serverForm.ServerName}"));
+                }
             }
         }
         private void ExitButton_Click(object sender, EventArgs e)

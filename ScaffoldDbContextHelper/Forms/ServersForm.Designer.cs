@@ -1,6 +1,6 @@
-﻿namespace ScaffoldDbContextHelper
+﻿namespace ScaffoldDbContextHelper.Forms
 {
-    partial class ProjectNamesForm
+    partial class ServersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.SelectButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.SelectButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // listBox1
+            // 
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(256, 171);
+            this.listBox1.TabIndex = 3;
             // 
             // panel1
             // 
@@ -43,26 +52,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 171);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(256, 54);
-            this.panel1.TabIndex = 0;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(256, 171);
-            this.listBox1.TabIndex = 1;
-            // 
-            // SelectButton
-            // 
-            this.SelectButton.Location = new System.Drawing.Point(12, 19);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.Size = new System.Drawing.Size(75, 23);
-            this.SelectButton.TabIndex = 0;
-            this.SelectButton.Text = "Select";
-            this.SelectButton.UseVisualStyleBackColor = true;
-            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            this.panel1.TabIndex = 2;
             // 
             // button1
             // 
@@ -74,7 +64,17 @@
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // ProjectNamesForm
+            // SelectButton
+            // 
+            this.SelectButton.Location = new System.Drawing.Point(12, 19);
+            this.SelectButton.Name = "SelectButton";
+            this.SelectButton.Size = new System.Drawing.Size(75, 23);
+            this.SelectButton.TabIndex = 0;
+            this.SelectButton.Text = "Select";
+            this.SelectButton.UseVisualStyleBackColor = true;
+            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            // 
+            // ServersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,9 +82,9 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "ProjectNamesForm";
+            this.Name = "ServersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Project";
+            this.Text = "Servers";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -92,9 +92,9 @@
 
         #endregion
 
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button SelectButton;
-        private System.Windows.Forms.ListBox listBox1;
     }
 }
