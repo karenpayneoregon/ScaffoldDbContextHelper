@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffoldDbContextHelper", "ScaffoldDbContextHelper\ScaffoldDbContextHelper.csproj", "{26DED45B-9BFA-42EE-866E-A4943637926F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerScaffoldDbContextHelper", "ScaffoldDbContextHelper\SqlServerScaffoldDbContextHelper.csproj", "{26DED45B-9BFA-42EE-866E-A4943637926F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWind.Data", "NorthWind.Data\NorthWind.Data.csproj", "{F39B9143-2C52-478F-9CC4-1C7AEA67A1F2}"
 EndProject
