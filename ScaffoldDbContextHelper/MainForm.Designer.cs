@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.TableNamesButton = new System.Windows.Forms.Button();
-            this.GetDatabaseNamesButton = new System.Windows.Forms.Button();
             this.DatabaseListBox = new System.Windows.Forms.ListBox();
             this.TablesCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.ForceCheckBox = new System.Windows.Forms.CheckBox();
@@ -44,9 +42,6 @@
             this.UseDatabaseNamesCheckBox = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.SolutionButton = new System.Windows.Forms.Button();
-            this.GenerateButton = new System.Windows.Forms.Button();
-            this.CopyToClipboardButton = new System.Windows.Forms.Button();
             this.SolutionFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel2 = new System.Windows.Forms.Panel();
             this.ProviderComboBox = new System.Windows.Forms.ComboBox();
@@ -55,10 +50,15 @@
             this.ServerNameTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.ContextNameTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.ContextFolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.FolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
+            this.ModelFolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.StartupProjectTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.ListBoxSearchTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
             this.ServerButton = new System.Windows.Forms.Button();
+            this.SolutionButton = new System.Windows.Forms.Button();
+            this.GenerateButton = new System.Windows.Forms.Button();
+            this.CopyToClipboardButton = new System.Windows.Forms.Button();
+            this.TableNamesButton = new System.Windows.Forms.Button();
+            this.GetDatabaseNamesButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -84,32 +84,6 @@
             this.ExitButton.Text = "Exit";
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // TableNamesButton
-            // 
-            this.TableNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TableNamesButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.Table_16x;
-            this.TableNamesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TableNamesButton.Location = new System.Drawing.Point(243, 13);
-            this.TableNamesButton.Name = "TableNamesButton";
-            this.TableNamesButton.Size = new System.Drawing.Size(211, 23);
-            this.TableNamesButton.TabIndex = 1;
-            this.TableNamesButton.Text = "Get Table names";
-            this.TableNamesButton.UseVisualStyleBackColor = true;
-            this.TableNamesButton.Click += new System.EventHandler(this.TableNamesButton_Click);
-            // 
-            // GetDatabaseNamesButton
-            // 
-            this.GetDatabaseNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GetDatabaseNamesButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.Refresh_16x;
-            this.GetDatabaseNamesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GetDatabaseNamesButton.Location = new System.Drawing.Point(10, 14);
-            this.GetDatabaseNamesButton.Name = "GetDatabaseNamesButton";
-            this.GetDatabaseNamesButton.Size = new System.Drawing.Size(211, 23);
-            this.GetDatabaseNamesButton.TabIndex = 0;
-            this.GetDatabaseNamesButton.Text = "Refresh Databases names";
-            this.GetDatabaseNamesButton.UseVisualStyleBackColor = true;
-            this.GetDatabaseNamesButton.Click += new System.EventHandler(this.GetDatabaseNamesButton_Click);
             // 
             // DatabaseListBox
             // 
@@ -237,41 +211,6 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Context name (optional)";
             // 
-            // SolutionButton
-            // 
-            this.SolutionButton.FlatAppearance.BorderSize = 0;
-            this.SolutionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SolutionButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.OpenfileDialog_16x;
-            this.SolutionButton.Location = new System.Drawing.Point(590, 196);
-            this.SolutionButton.Name = "SolutionButton";
-            this.SolutionButton.Size = new System.Drawing.Size(26, 23);
-            this.SolutionButton.TabIndex = 18;
-            this.SolutionButton.UseVisualStyleBackColor = true;
-            this.SolutionButton.Click += new System.EventHandler(this.SolutionButton_Click);
-            // 
-            // GenerateButton
-            // 
-            this.GenerateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenerateButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.GenerateMethod_16x;
-            this.GenerateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GenerateButton.Location = new System.Drawing.Point(425, 314);
-            this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Size = new System.Drawing.Size(189, 23);
-            this.GenerateButton.TabIndex = 2;
-            this.GenerateButton.Text = "Generate";
-            this.GenerateButton.UseVisualStyleBackColor = true;
-            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
-            // 
-            // CopyToClipboardButton
-            // 
-            this.CopyToClipboardButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.Copy_16x;
-            this.CopyToClipboardButton.Location = new System.Drawing.Point(730, 476);
-            this.CopyToClipboardButton.Name = "CopyToClipboardButton";
-            this.CopyToClipboardButton.Size = new System.Drawing.Size(37, 23);
-            this.CopyToClipboardButton.TabIndex = 9;
-            this.CopyToClipboardButton.UseVisualStyleBackColor = true;
-            this.CopyToClipboardButton.Click += new System.EventHandler(this.CopyToClipboardButton_Click);
-            // 
             // SolutionFileDialog1
             // 
             this.SolutionFileDialog1.Filter = "Visual Studio Solution|*.sln";
@@ -342,14 +281,14 @@
             this.ContextFolderTextBox.TabIndex = 15;
             this.ContextFolderTextBox.Text = "Context";
             // 
-            // FolderTextBox
+            // ModelFolderTextBox
             // 
-            this.FolderTextBox.CueBannerText = "Folder for models";
-            this.FolderTextBox.Location = new System.Drawing.Point(424, 224);
-            this.FolderTextBox.Name = "FolderTextBox";
-            this.FolderTextBox.Size = new System.Drawing.Size(190, 20);
-            this.FolderTextBox.TabIndex = 14;
-            this.FolderTextBox.Text = "Models";
+            this.ModelFolderTextBox.CueBannerText = "Folder for models";
+            this.ModelFolderTextBox.Location = new System.Drawing.Point(424, 224);
+            this.ModelFolderTextBox.Name = "ModelFolderTextBox";
+            this.ModelFolderTextBox.Size = new System.Drawing.Size(190, 20);
+            this.ModelFolderTextBox.TabIndex = 14;
+            this.ModelFolderTextBox.Text = "Models";
             // 
             // StartupProjectTextBox
             // 
@@ -379,6 +318,67 @@
             this.ServerButton.UseVisualStyleBackColor = true;
             this.ServerButton.Click += new System.EventHandler(this.ServerButton_Click);
             // 
+            // SolutionButton
+            // 
+            this.SolutionButton.FlatAppearance.BorderSize = 0;
+            this.SolutionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SolutionButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.OpenfileDialog_16x;
+            this.SolutionButton.Location = new System.Drawing.Point(590, 196);
+            this.SolutionButton.Name = "SolutionButton";
+            this.SolutionButton.Size = new System.Drawing.Size(26, 23);
+            this.SolutionButton.TabIndex = 18;
+            this.SolutionButton.UseVisualStyleBackColor = true;
+            this.SolutionButton.Click += new System.EventHandler(this.SolutionButton_Click);
+            // 
+            // GenerateButton
+            // 
+            this.GenerateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenerateButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.GenerateMethod_16x;
+            this.GenerateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GenerateButton.Location = new System.Drawing.Point(425, 314);
+            this.GenerateButton.Name = "GenerateButton";
+            this.GenerateButton.Size = new System.Drawing.Size(189, 23);
+            this.GenerateButton.TabIndex = 2;
+            this.GenerateButton.Text = "Generate";
+            this.GenerateButton.UseVisualStyleBackColor = true;
+            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
+            // 
+            // CopyToClipboardButton
+            // 
+            this.CopyToClipboardButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.Copy_16x;
+            this.CopyToClipboardButton.Location = new System.Drawing.Point(730, 476);
+            this.CopyToClipboardButton.Name = "CopyToClipboardButton";
+            this.CopyToClipboardButton.Size = new System.Drawing.Size(37, 23);
+            this.CopyToClipboardButton.TabIndex = 9;
+            this.CopyToClipboardButton.UseVisualStyleBackColor = true;
+            this.CopyToClipboardButton.Click += new System.EventHandler(this.CopyToClipboardButton_Click);
+            // 
+            // TableNamesButton
+            // 
+            this.TableNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TableNamesButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.Table_16x;
+            this.TableNamesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.TableNamesButton.Location = new System.Drawing.Point(243, 13);
+            this.TableNamesButton.Name = "TableNamesButton";
+            this.TableNamesButton.Size = new System.Drawing.Size(211, 23);
+            this.TableNamesButton.TabIndex = 1;
+            this.TableNamesButton.Text = "Get Table names";
+            this.TableNamesButton.UseVisualStyleBackColor = true;
+            this.TableNamesButton.Click += new System.EventHandler(this.TableNamesButton_Click);
+            // 
+            // GetDatabaseNamesButton
+            // 
+            this.GetDatabaseNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GetDatabaseNamesButton.Image = global::ScaffoldDbContextHelper.Properties.Resources.Refresh_16x;
+            this.GetDatabaseNamesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.GetDatabaseNamesButton.Location = new System.Drawing.Point(10, 14);
+            this.GetDatabaseNamesButton.Name = "GetDatabaseNamesButton";
+            this.GetDatabaseNamesButton.Size = new System.Drawing.Size(211, 23);
+            this.GetDatabaseNamesButton.TabIndex = 0;
+            this.GetDatabaseNamesButton.Text = "Refresh Databases names";
+            this.GetDatabaseNamesButton.UseVisualStyleBackColor = true;
+            this.GetDatabaseNamesButton.Click += new System.EventHandler(this.GetDatabaseNamesButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,7 +396,7 @@
             this.Controls.Add(this.GenerateButton);
             this.Controls.Add(this.ContextNameTextBox);
             this.Controls.Add(this.ContextFolderTextBox);
-            this.Controls.Add(this.FolderTextBox);
+            this.Controls.Add(this.ModelFolderTextBox);
             this.Controls.Add(this.StartupProjectTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.UseDatabaseNamesCheckBox);
@@ -413,7 +413,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Entity Framework Core Scaffold-DbContext helper - Windows Forms";
+            this.Text = "Sql-Server - Entity Framework Core Scaffold-DbContext helper - Windows Forms";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -441,7 +441,7 @@
         private System.Windows.Forms.CheckBox UseDatabaseNamesCheckBox;
         private System.Windows.Forms.Label label3;
         private Classes.CueTextBox StartupProjectTextBox;
-        private Classes.CueTextBox FolderTextBox;
+        private Classes.CueTextBox ModelFolderTextBox;
         private Classes.CueTextBox ContextFolderTextBox;
         private Classes.CueTextBox ContextNameTextBox;
         private System.Windows.Forms.Label label4;

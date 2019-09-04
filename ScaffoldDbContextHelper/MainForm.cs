@@ -213,7 +213,7 @@ namespace ScaffoldDbContextHelper
                 TableNames = TablesCheckedListBox.CheckedItems.Cast<string>(),
                 ContextName = ContextNameTextBox.Text,
                 ContextDirectory = ContextFolderTextBox.Text,
-                FolderName = FolderTextBox.Text,
+                FolderName = ModelFolderTextBox.Text,
                 StartupProject = StartupProjectTextBox.Text,
                 Switches =
                 {
