@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace ScaffoldDbContextHelper.Classes
+namespace FormControlLibrary
 {
     public static class KarenDialogs
     {

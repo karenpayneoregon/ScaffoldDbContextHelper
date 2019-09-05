@@ -1,4 +1,6 @@
-﻿namespace ScaffoldDbContextHelper
+﻿using FormControlLibrary;
+
+namespace ScaffoldDbContextHelper
 {
     partial class MainForm
     {
@@ -47,12 +49,12 @@
             this.ProviderComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.ServerNameTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.ContextNameTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.ContextFolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.ModelFolderTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.StartupProjectTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
-            this.ListBoxSearchTextBox = new ScaffoldDbContextHelper.Classes.CueTextBox();
+            this.ServerNameTextBox = new CueTextBox();
+            this.ContextNameTextBox = new CueTextBox();
+            this.ContextFolderTextBox = new CueTextBox();
+            this.ModelFolderTextBox = new CueTextBox();
+            this.StartupProjectTextBox = new CueTextBox();
+            this.ListBoxSearchTextBox = new CueTextBox();
             this.ServerButton = new System.Windows.Forms.Button();
             this.SolutionButton = new System.Windows.Forms.Button();
             this.GenerateButton = new System.Windows.Forms.Button();
@@ -436,21 +438,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ScriptTextBox;
         private System.Windows.Forms.Button CopyToClipboardButton;
-        private Classes.CueTextBox ListBoxSearchTextBox;
+        private CueTextBox ListBoxSearchTextBox;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.CheckBox UseDatabaseNamesCheckBox;
         private System.Windows.Forms.Label label3;
-        private Classes.CueTextBox StartupProjectTextBox;
-        private Classes.CueTextBox ModelFolderTextBox;
-        private Classes.CueTextBox ContextFolderTextBox;
-        private Classes.CueTextBox ContextNameTextBox;
+        private CueTextBox StartupProjectTextBox;
+        private CueTextBox ModelFolderTextBox;
+        private CueTextBox ContextFolderTextBox;
+        private CueTextBox ContextNameTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button SolutionButton;
         private System.Windows.Forms.OpenFileDialog SolutionFileDialog1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox ProviderComboBox;
         private System.Windows.Forms.Label label5;
-        private Classes.CueTextBox ServerNameTextBox;
+        private CueTextBox ServerNameTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button ServerButton;
     }

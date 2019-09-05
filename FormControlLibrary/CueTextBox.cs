@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace ScaffoldDbContextHelper.Classes
+namespace FormControlLibrary
 {
     [ToolboxBitmap(typeof(CueTextBox))]
     public class CueTextBox : System.Windows.Forms.TextBox

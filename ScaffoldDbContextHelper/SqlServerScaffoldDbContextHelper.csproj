@@ -109,9 +109,6 @@
   <ItemGroup>
     <Compile Include="Classes\ApplicationSettings.cs" />
     <Compile Include="Classes\SqlServerDatabaseInformation.cs" />
-    <Compile Include="Classes\CueTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Classes\ScaffoldBuilder.cs" />
     <Compile Include="Classes\SqlServerScaffoldConfigurationItem.cs" />
     <Compile Include="Classes\SqlServerUtilities.cs" />
@@ -127,7 +124,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\KarenDialogs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Forms\ProjectNamesForm.cs">
       <SubType>Form</SubType>
@@ -195,6 +191,10 @@
     <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
       <Project>{b77799ca-516c-4b92-a3c3-f90fbadd36b7}</Project>
       <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormControlLibrary\FormControlLibrary.csproj">
+      <Project>{cde9df9d-6f1d-4fe9-99dd-f1e0e4ee5187}</Project>
+      <Name>FormControlLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

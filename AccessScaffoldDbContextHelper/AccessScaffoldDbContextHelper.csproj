@@ -46,11 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AccessDatabaseInformation.cs" />
     <Compile Include="Classes\ApplicationSettings.cs" />
+    <Compile Include="Classes\ConnectionsAccess.cs" />
     <Compile Include="Classes\CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Classes\KarenDialogs.cs" />
     <Compile Include="Forms\ProjectNamesForm.cs">
       <SubType>Form</SubType>
     </Compile>

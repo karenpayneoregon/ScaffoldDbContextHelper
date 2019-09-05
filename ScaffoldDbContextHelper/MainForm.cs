@@ -11,7 +11,7 @@ using CommonLibrary;
 using Newtonsoft.Json;
 using ScaffoldDbContextHelper.Classes;
 using ScaffoldDbContextHelper.Forms;
-using static ScaffoldDbContextHelper.Classes.KarenDialogs;
+using static FormControlLibrary.KarenDialogs;
 
 namespace ScaffoldDbContextHelper
 {
@@ -20,7 +20,7 @@ namespace ScaffoldDbContextHelper
         /// <summary>
         /// Change server name to your server name.
         /// </summary>
-        private ScaffoldBuilder _scaffoldBuilder = new ScaffoldBuilder(".\\SQLEXPRESS");
+        private ScaffoldBuilder _scaffoldBuilder = new ScaffoldBuilder("KARENS-PC");
         private string _applicationSettingsFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppSettings.json");
 
         public MainForm()
@@ -273,19 +273,18 @@ namespace ScaffoldDbContextHelper
         }
         private async void ServerButton_Click(object sender, EventArgs e)
         {
+            var columnName = _scaffoldBuilder.ServerName.ToLower().Contains("sqlexpress") ? "InstanceName" : "ServerName";
+
             var ops = new SqlServerUtilities();
             var serverDataTable = await ops.SqlServerInstances().ConfigureAwait(false);
             var serverNameList = serverDataTable.AsEnumerable()
-                .Where(row => !string.IsNullOrWhiteSpace(row.Field<string>("InstanceName")))
-                .Select(row => row.Field<string>("InstanceName")).ToList();
+                .Where(row => !string.IsNullOrWhiteSpace(row.Field<string>(columnName)))
+                .Select(row => row.Field<string>(columnName)).ToList();
 
             var serverForm = new ServersForm(serverNameList);
             if (serverForm.ShowDialog() == DialogResult.OK)
             {
-                if (string.IsNullOrWhiteSpace(serverForm.ServerName))
-                {
-                    return;
-                }
+                if (string.IsNullOrWhiteSpace(serverForm.ServerName)) return;
 
                 ServerNameTextBox.Invoke(serverForm.ServerName == "SQLEXPRESS"
                     ? new Action(() => ServerNameTextBox.Text = $@".\{serverForm.ServerName}")
@@ -299,4 +298,3 @@ namespace ScaffoldDbContextHelper
         }
     }
 }
-
