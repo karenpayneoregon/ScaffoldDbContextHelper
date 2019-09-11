@@ -5,7 +5,6 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonLibrary;
 using Newtonsoft.Json;
@@ -121,7 +120,6 @@ namespace ScaffoldDbContextHelper
                 if (ops.IsSuccessFul)
                 {
                     DatabaseListBox.DataSource = result;
-
                 }
                 else
                 {

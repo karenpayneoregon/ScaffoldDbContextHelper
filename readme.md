@@ -11,4 +11,4 @@ There are plenty of free tools and Visual Studio extensions such as [EF Core Pow
 
 Find all current providers [here](https://docs.microsoft.com/en-us/ef/core/providers/).
 
-[TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/53258.windows-forms-entity-framework-core-reverse-engineering-databases.aspx)
+[TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/53258.windows-forms-entity-framework-core-reverse-engineering-databases.aspx?fbclid=IwAR3AJK-vxEfKLnA-9-jinLHw9MKWAggM-zqW5vobhH1za_703bGyy2sBNEU)
