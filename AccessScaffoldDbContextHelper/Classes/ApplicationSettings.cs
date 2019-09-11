@@ -1,4 +1,4 @@
-﻿namespace ScaffoldDbContextHelper.Classes
+﻿namespace AccessScaffoldDbContextHelper.Classes
 {
     public class ApplicationSettings
     {

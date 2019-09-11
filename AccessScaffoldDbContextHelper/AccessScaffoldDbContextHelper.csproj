@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BaseConnectionLibrary, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BaseConnectionLibrary.1.0.3\lib\net461\BaseConnectionLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,12 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AccessScaffoldConfigurationItem.cs" />
     <Compile Include="Classes\AccessDatabaseInformation.cs" />
     <Compile Include="Classes\ApplicationSettings.cs" />
     <Compile Include="Classes\ConnectionsAccess.cs" />
     <Compile Include="Classes\CueTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\ScaffoldBuilder.cs" />
     <Compile Include="Forms\ProjectNamesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +87,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +117,15 @@
   <ItemGroup>
     <None Include="Resources\Copy_16x.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CommonLibrary\CommonLibrary.csproj">
+      <Project>{b77799ca-516c-4b92-a3c3-f90fbadd36b7}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FormControlLibrary\FormControlLibrary.csproj">
+      <Project>{cde9df9d-6f1d-4fe9-99dd-f1e0e4ee5187}</Project>
+      <Name>FormControlLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
