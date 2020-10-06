@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ExecuteButton = new System.Windows.Forms.Button();
+            this.CustomerNameStartsWithTextBox = new System.Windows.Forms.TextBox();
+            this.CountryComboBox = new System.Windows.Forms.ComboBox();
             this.CurrentButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CustomerIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryComboBox = new System.Windows.Forms.ComboBox();
-            this.CustomerNameStartsWithTextBox = new System.Windows.Forms.TextBox();
-            this.ExecuteButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(325, 116);
             this.panel1.TabIndex = 0;
+            // 
+            // ExecuteButton
+            // 
+            this.ExecuteButton.Image = global::Microsoft.Access.Data.Properties.Resources.Search_16x;
+            this.ExecuteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ExecuteButton.Location = new System.Drawing.Point(175, 53);
+            this.ExecuteButton.Name = "ExecuteButton";
+            this.ExecuteButton.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.ExecuteButton.Size = new System.Drawing.Size(138, 51);
+            this.ExecuteButton.TabIndex = 3;
+            this.ExecuteButton.Text = "Find";
+            this.ExecuteButton.UseVisualStyleBackColor = true;
+            this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
+            // 
+            // CustomerNameStartsWithTextBox
+            // 
+            this.CustomerNameStartsWithTextBox.Location = new System.Drawing.Point(12, 84);
+            this.CustomerNameStartsWithTextBox.Name = "CustomerNameStartsWithTextBox";
+            this.CustomerNameStartsWithTextBox.Size = new System.Drawing.Size(157, 20);
+            this.CustomerNameStartsWithTextBox.TabIndex = 2;
+            this.CustomerNameStartsWithTextBox.Text = "La";
+            // 
+            // CountryComboBox
+            // 
+            this.CountryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CountryComboBox.FormattingEnabled = true;
+            this.CountryComboBox.Location = new System.Drawing.Point(12, 53);
+            this.CountryComboBox.Name = "CountryComboBox";
+            this.CountryComboBox.Size = new System.Drawing.Size(157, 21);
+            this.CountryComboBox.TabIndex = 1;
             // 
             // CurrentButton
             // 
@@ -105,33 +136,6 @@
             this.CountryColumn.HeaderText = "Country";
             this.CountryColumn.Name = "CountryColumn";
             // 
-            // CountryComboBox
-            // 
-            this.CountryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CountryComboBox.FormattingEnabled = true;
-            this.CountryComboBox.Location = new System.Drawing.Point(12, 53);
-            this.CountryComboBox.Name = "CountryComboBox";
-            this.CountryComboBox.Size = new System.Drawing.Size(157, 21);
-            this.CountryComboBox.TabIndex = 1;
-            // 
-            // CustomerNameStartsWithTextBox
-            // 
-            this.CustomerNameStartsWithTextBox.Location = new System.Drawing.Point(12, 84);
-            this.CustomerNameStartsWithTextBox.Name = "CustomerNameStartsWithTextBox";
-            this.CustomerNameStartsWithTextBox.Size = new System.Drawing.Size(157, 20);
-            this.CustomerNameStartsWithTextBox.TabIndex = 2;
-            this.CustomerNameStartsWithTextBox.Text = "La";
-            // 
-            // ExecuteButton
-            // 
-            this.ExecuteButton.Location = new System.Drawing.Point(175, 53);
-            this.ExecuteButton.Name = "ExecuteButton";
-            this.ExecuteButton.Size = new System.Drawing.Size(138, 51);
-            this.ExecuteButton.TabIndex = 3;
-            this.ExecuteButton.Text = "Find";
-            this.ExecuteButton.UseVisualStyleBackColor = true;
-            this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,9 +143,10 @@
             this.ClientSize = new System.Drawing.Size(325, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "EF Core - MS-Access";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
