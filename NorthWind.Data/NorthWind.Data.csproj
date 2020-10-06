@@ -129,6 +129,7 @@
     <Compile Include="Contexts\MasterDetailSimpleContext.cs" />
     <Compile Include="Contexts\NorthWindSqlContext.cs" />
     <Compile Include="Contexts\RestaurantContext.cs" />
+    <Compile Include="Context\ForumExampleContext.cs" />
     <Compile Include="DateModels\Events.cs" />
     <Compile Include="DateModels\TimeTable.cs" />
     <Compile Include="EmailModels\CannedMessages.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="MasterModels\Customer.cs" />
     <Compile Include="MasterModels\OrderDetails.cs" />
     <Compile Include="MasterModels\Orders.cs" />
+    <Compile Include="Models\TransactionsLog.cs" />
     <Compile Include="NorthSqlModels\Contacts.cs" />
     <Compile Include="NorthSqlModels\ContactType.cs" />
     <Compile Include="NorthSqlModels\Countries.cs" />

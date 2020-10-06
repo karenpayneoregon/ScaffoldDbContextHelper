@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Access.Data.NorthModels;
 
-namespace Microsoft.Access.Data
+namespace WindowsFormsApp1.Models
 {
     public partial class Suppliers
     {

@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Context Builders", "Context
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormControlLibrary", "FormControlLibrary\FormControlLibrary.csproj", "{CDE9DF9D-6F1D-4FE9-99DD-F1E0E4EE5187}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{1269EE18-F571-4ED3-BE5F-58C3D64836C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{CDE9DF9D-6F1D-4FE9-99DD-F1E0E4EE5187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDE9DF9D-6F1D-4FE9-99DD-F1E0E4EE5187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDE9DF9D-6F1D-4FE9-99DD-F1E0E4EE5187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1269EE18-F571-4ED3-BE5F-58C3D64836C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1269EE18-F571-4ED3-BE5F-58C3D64836C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1269EE18-F571-4ED3-BE5F-58C3D64836C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1269EE18-F571-4ED3-BE5F-58C3D64836C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{B77799CA-516C-4B92-A3C3-F90FBADD36B7} = {FA789B4D-F411-4F7A-B42C-7484F4E7FC31}
 		{2F89F164-8D34-403D-8338-4F81CFFA73D2} = {588CA02B-720F-4354-9393-06267D2EB56C}
 		{CDE9DF9D-6F1D-4FE9-99DD-F1E0E4EE5187} = {FA789B4D-F411-4F7A-B42C-7484F4E7FC31}
+		{1269EE18-F571-4ED3-BE5F-58C3D64836C7} = {385496B1-49EA-487D-A749-226E8DC84F35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0887F61E-B933-4675-BC8D-0D59821513A3}

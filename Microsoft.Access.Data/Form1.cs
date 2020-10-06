@@ -11,9 +11,12 @@ using System.Windows.Forms;
  * For BindingListView
  */
 using Equin.ApplicationFramework;
+
 using Microsoft.Access.Data.Contexts;
 using Microsoft.Access.Data.LanguageExtensions;
+using Microsoft.Access.Data.NorthModels;
 using Microsoft.Access.Data.WorkingClasses;
+using Microsoft.EntityFrameworkCore;
 
 namespace Microsoft.Access.Data
 {
@@ -24,7 +27,7 @@ namespace Microsoft.Access.Data
     {
         //https://github.com/waynebloss/BindingListView
         private BindingListView<CustomerEntity> _customersView;
-        private BindingSource _customersBindingSource = new BindingSource();
+        private readonly BindingSource _customersBindingSource = new BindingSource();
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +40,11 @@ namespace Microsoft.Access.Data
 
             using (var context = new NorthWindAccessContext())
             {
+
+                var countries = context.Countries.ToList();
+                countries.Insert(0, new Countries() {Name = "Select", CountryIdentifier = -1});
+                CountryComboBox.DataSource = countries;
+
                 var customerData = (from customer in context.Customers
                     join country in context.Countries on customer.CountryIdentifier equals country.CountryIdentifier
                     select new CustomerEntity
@@ -47,6 +55,8 @@ namespace Microsoft.Access.Data
                         Country = country.Name
                     }).ToList();
 
+
+ 
                 _customersView = new BindingListView<CustomerEntity>(customerData);
                 _customersBindingSource.DataSource = _customersView;
                 dataGridView1.DataSource = _customersBindingSource;
@@ -57,6 +67,40 @@ namespace Microsoft.Access.Data
         {
             var currentCustomer = _customersBindingSource.CurrentCustomerEntity();
             MessageBox.Show($"Id: {currentCustomer.CustomerIdentifier} country id: {currentCustomer.CountryIdentifier}");
+        }
+
+        private void ExecuteButton_Click(object sender, EventArgs e)
+        {
+            using (var context = new NorthWindAccessContext())
+            {
+
+                var customerData = (from customer in context.Customers
+                    join country in context.Countries on customer.CountryIdentifier equals country.CountryIdentifier
+                    select new CustomerEntity
+                    {
+                        CustomerIdentifier = customer.CustomerIdentifier,
+                        CustomerName = customer.CompanyName,
+                        CountryIdentifier = customer.CountryIdentifier,
+                        Country = country.Name
+                    }).ToList();
+
+
+                var countryId = ((Countries) CountryComboBox.SelectedItem).CountryIdentifier;
+                if (countryId > -1)
+                {
+                    customerData = customerData.Where(customer => customer.CountryIdentifier == countryId).ToList();
+                }
+
+                if (!string.IsNullOrWhiteSpace(CustomerNameStartsWithTextBox.Text))
+                {
+                    customerData = customerData.Where(customer => EF.Functions.Like(customer.CustomerName, "La%")).ToList();
+                }
+                
+
+                _customersView = new BindingListView<CustomerEntity>(customerData);
+                _customersBindingSource.DataSource = _customersView;
+                dataGridView1.DataSource = _customersBindingSource;
+            }
         }
     }
 }

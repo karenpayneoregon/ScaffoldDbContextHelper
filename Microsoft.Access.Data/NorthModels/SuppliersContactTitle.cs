@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Microsoft.Access.Data
+namespace Microsoft.Access.Data.NorthModels
 {
     public partial class SuppliersContactTitle
     {

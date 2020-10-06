@@ -29,24 +29,40 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CurrentButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CustomerIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryIdentifierColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CurrentButton = new System.Windows.Forms.Button();
+            this.CountryComboBox = new System.Windows.Forms.ComboBox();
+            this.CustomerNameStartsWithTextBox = new System.Windows.Forms.TextBox();
+            this.ExecuteButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ExecuteButton);
+            this.panel1.Controls.Add(this.CustomerNameStartsWithTextBox);
+            this.panel1.Controls.Add(this.CountryComboBox);
             this.panel1.Controls.Add(this.CurrentButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 403);
+            this.panel1.Location = new System.Drawing.Point(0, 334);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(325, 47);
+            this.panel1.Size = new System.Drawing.Size(325, 116);
             this.panel1.TabIndex = 0;
+            // 
+            // CurrentButton
+            // 
+            this.CurrentButton.Location = new System.Drawing.Point(12, 12);
+            this.CurrentButton.Name = "CurrentButton";
+            this.CurrentButton.Size = new System.Drawing.Size(136, 23);
+            this.CurrentButton.TabIndex = 0;
+            this.CurrentButton.Text = "Current details";
+            this.CurrentButton.UseVisualStyleBackColor = true;
+            this.CurrentButton.Click += new System.EventHandler(this.CurrentButton_Click);
             // 
             // dataGridView1
             // 
@@ -60,7 +76,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(325, 403);
+            this.dataGridView1.Size = new System.Drawing.Size(325, 334);
             this.dataGridView1.TabIndex = 1;
             // 
             // CustomerIdentifierColumn
@@ -89,15 +105,32 @@
             this.CountryColumn.HeaderText = "Country";
             this.CountryColumn.Name = "CountryColumn";
             // 
-            // CurrentButton
+            // CountryComboBox
             // 
-            this.CurrentButton.Location = new System.Drawing.Point(12, 12);
-            this.CurrentButton.Name = "CurrentButton";
-            this.CurrentButton.Size = new System.Drawing.Size(136, 23);
-            this.CurrentButton.TabIndex = 0;
-            this.CurrentButton.Text = "Current details";
-            this.CurrentButton.UseVisualStyleBackColor = true;
-            this.CurrentButton.Click += new System.EventHandler(this.CurrentButton_Click);
+            this.CountryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CountryComboBox.FormattingEnabled = true;
+            this.CountryComboBox.Location = new System.Drawing.Point(12, 53);
+            this.CountryComboBox.Name = "CountryComboBox";
+            this.CountryComboBox.Size = new System.Drawing.Size(157, 21);
+            this.CountryComboBox.TabIndex = 1;
+            // 
+            // CustomerNameStartsWithTextBox
+            // 
+            this.CustomerNameStartsWithTextBox.Location = new System.Drawing.Point(12, 84);
+            this.CustomerNameStartsWithTextBox.Name = "CustomerNameStartsWithTextBox";
+            this.CustomerNameStartsWithTextBox.Size = new System.Drawing.Size(157, 20);
+            this.CustomerNameStartsWithTextBox.TabIndex = 2;
+            this.CustomerNameStartsWithTextBox.Text = "La";
+            // 
+            // ExecuteButton
+            // 
+            this.ExecuteButton.Location = new System.Drawing.Point(175, 53);
+            this.ExecuteButton.Name = "ExecuteButton";
+            this.ExecuteButton.Size = new System.Drawing.Size(138, 51);
+            this.ExecuteButton.TabIndex = 3;
+            this.ExecuteButton.Text = "Find";
+            this.ExecuteButton.UseVisualStyleBackColor = true;
+            this.ExecuteButton.Click += new System.EventHandler(this.ExecuteButton_Click);
             // 
             // Form1
             // 
@@ -110,6 +143,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -124,6 +158,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CountryIdentifierColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountryColumn;
         private System.Windows.Forms.Button CurrentButton;
+        private System.Windows.Forms.ComboBox CountryComboBox;
+        private System.Windows.Forms.Button ExecuteButton;
+        private System.Windows.Forms.TextBox CustomerNameStartsWithTextBox;
     }
 }
 
